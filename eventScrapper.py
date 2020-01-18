@@ -29,7 +29,7 @@ def html_to_json(content, indent=None):
         cells = row.find_all("td")
         if thead:
             items = {}
-            for i, index in headers:
+            for index in headers:
                 items[headers[index]] = cells[index].text
         else:
             items = []
