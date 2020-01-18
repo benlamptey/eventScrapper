@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 from bs4 import BeautifulSoup
 
 data = ['event', 'date', 'time']
@@ -41,6 +42,6 @@ def html_to_json(content, indent=None):
 
 events = html_to_json(page.content, indent=2)
 
-f = open("tottenham-events.json", "w")
+f = open(sys.argv[1], "w")
 f.write(events)
 f.close()
