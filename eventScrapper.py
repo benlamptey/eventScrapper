@@ -37,7 +37,14 @@ def html_to_json(content, indent=None):
             for index in cells:
                 items.append(index.text.strip())
         data.append(items)
-    return json.dumps(data, indent=indent)
+        # remove the headers. its coming up as first element for some reason.
+
+    data.pop(0)
+    formattedList = {}
+    formattedList['nextEvent'] = data[1]
+    formattedList['upcomingEvents'] = data
+    formattedList['upcomingEvents'].pop(0)
+    return json.dumps(formattedList, indent=indent)
 
 
 events = html_to_json(page.content, indent=2)
