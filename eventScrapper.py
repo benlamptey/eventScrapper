@@ -39,7 +39,6 @@ def html_to_json(content, indent=None):
         data.append(items)
         # remove the headers. its coming up as first element for some reason.
 
-    data.pop(0)
     formattedList = {}
     formattedList['nextEvent'] = data[1]
     formattedList['upcomingEvents'] = data
